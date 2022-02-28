@@ -2021,21 +2021,19 @@ function library:AddWindow(title, options)
 
 	return window_data, Window
 end
---example
-do
-	local Window = library:AddWindow("ϵ̷̙̃  Hub", {
-		main_color = Color3.fromRGB(200, 55, 100),
+
+do -- Example UI
+	local Window = library:AddWindow("Preview", {
+		main_color = Color3.fromRGB(41, 74, 122),
 		min_size = Vector2.new(500, 600),
-		toggle_key = Enum.KeyCode.v,
+		toggle_key = Enum.KeyCode.RightShift,
 		can_resize = true,
 	})
 	local Tab = Window:AddTab("Tab 1")
-	local Tab2 = Window:AddTab("Tab 2")
-	
 
 	do -- Elements
 		Tab:AddLabel("Hello World!")
-		
+
 		Tab:AddButton("Button", function()
 			print("Button clicked.")
 		end)
@@ -2045,9 +2043,6 @@ do
 		end, {
 			["clear"] = false, -- Default: true (options are optional)
 		})
-		Tab2:Addbutton("Chams", function()
-	        print("chams")
-        end)
 
 		local Switch = Tab:AddSwitch("Switch", function(bool)
 			print(bool)
@@ -2066,7 +2061,7 @@ do
 		Tab:AddKeybind("Keybind", function(key)
 			print(key)
 		end, { -- (options are optional)
-			["standard"] = Enum.KeyCode.v -- Default: RightShift
+			["standard"] = Enum.KeyCode.RightShift -- Default: RightShift
 		})
 
 		local Dropdown = Tab:AddDropdown("Dropdown", function(object)
@@ -2100,12 +2095,11 @@ do
 
 		local Folder = Tab:AddFolder("Folder") -- This can contain exactly the same as a Tab. You can have as many folders as you'd like to.
 		Folder:AddLabel("Hello")
-		local Folder2 = Folder:AddFolder("sus")
+		local Folder2 = Folder:AddFolder("?")
 		Folder2:AddLabel("Woo!")
 
 	end
-    
+
 	Tab:Show()
-	Tab2:Show()
 	library:FormatWindows()
 end
